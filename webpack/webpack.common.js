@@ -1,10 +1,10 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin"); // Allow to create automatically .html files in build production folder
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin'); // Allow to create automatically .html files in build production folder
 
 module.exports = {
-  entry: path.resolve(__dirname, "..", "./src/index.tsx"),
+  entry: path.resolve(__dirname, '..', './src/index.tsx'),
   resolve: {
-    extensions: [".tsx", ".ts", ".js"],
+    extensions: ['.tsx', '.ts', '.js'],
   },
   module: {
     rules: [
@@ -14,34 +14,34 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           {
-            loader: "babel-loader",
+            loader: 'babel-loader',
           },
         ],
       },
       // .css loaders
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"],
+        use: ['style-loader', 'css-loader'],
       },
       // assets loaders
       {
         test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
-        type: "asset/resource",
+        type: 'asset/resource',
       },
       // .svg files
       {
         test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
-        type: "asset/inline",
+        type: 'asset/inline',
       },
     ],
   },
   output: {
-    path: path.resolve(__dirname, "..", "./build"),
-    filename: "bundle.js",
+    path: path.resolve(__dirname, '..', './build'),
+    filename: 'bundle.js',
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, "..", "./src/index.html"),
+      template: path.resolve(__dirname, '..', './src/index.html'),
     }),
   ],
 };

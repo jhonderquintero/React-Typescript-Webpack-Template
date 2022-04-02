@@ -1,12 +1,14 @@
-const { DefinePlugin } = require("webpack");
+const { DefinePlugin } = require('webpack');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = {
-  mode: "production",
-  devtool: "source-map",
+  mode: 'production',
+  devtool: 'source-map',
   plugins: [
     new DefinePlugin({
-      "process.env.mode": JSON.stringify("PRODUCTION"),
+      'process.env.mode': JSON.stringify('PRODUCTION'),
     }),
+    new BundleAnalyzerPlugin(),
   ],
   performance: {
     hints: false,
